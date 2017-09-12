@@ -17,7 +17,15 @@ st_write(dc_metro, here("data/dc_metro.geojson"))
 
 # Using dplyr with sf
 dc_red_only <- dc_metro %>%
-  filter(NAME == "red")
+  filter(NAME == "red") 
 
+station_rides <- read.csv(here("data/station_rides.csv"), stringsAsFactors = FALSE)
 
+dc_metro_sttn <- dc_metro_sttn %>%
+  left_join(station_rides, by = c("NAME" = "Ent.Station"))
+
+busy_sttn <- dc_metro_sttn %>%
+  filter(avg_wkday > 10000) %>%
+  select(name = NAME, ridership = avg_wkday, line = LINE) %>%
+  arrange(desc(ridership))
 
