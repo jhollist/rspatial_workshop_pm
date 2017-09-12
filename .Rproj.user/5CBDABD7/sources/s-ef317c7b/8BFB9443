@@ -7,11 +7,13 @@
     "folds" : "",
     "hash" : "0",
     "id" : "8BFB9443",
-    "lastKnownWriteTime" : 1505236264,
-    "last_content_update" : 1505236264030,
+    "lastKnownWriteTime" : 1505236418,
+    "last_content_update" : 1505236418478,
     "path" : "C:/data/rspatial_workshop_pm/scripts/workshop_code.R",
     "project_path" : "scripts/workshop_code.R",
     "properties" : {
+        "cursorPosition" : "0,2",
+        "scrollLine" : "0",
         "tempName" : "Untitled1"
     },
     "relative_order" : 1,
