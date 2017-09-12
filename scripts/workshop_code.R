@@ -34,3 +34,9 @@ utm_z18 <- "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
 dc_metro_alb <- st_transform(dc_metro, esri_alb_p4)
 dc_elev_alb <- projectRaster(dc_elev,crs = esri_alb_p4)
 
+dc_bnd_alb <- us_states %>%
+  filter(STUSPS == "DC") %>%
+  st_transform(esri_alb_p4)
+
+
+
