@@ -33,10 +33,21 @@ esri_alb_p4 <- projection(dc_nlcd)
 utm_z18 <- "+proj=utm +zone=18 +ellps=WGS84 +datum=WGS84 +units=m +no_defs "
 dc_metro_alb <- st_transform(dc_metro, esri_alb_p4)
 dc_elev_alb <- projectRaster(dc_elev,crs = esri_alb_p4)
-
+dc_metro_sttn_alb <- st_transform(dc_metro_sttn, esri_alb_p4)
 dc_bnd_alb <- us_states %>%
   filter(STUSPS == "DC") %>%
   st_transform(esri_alb_p4)
 
+# base plotting
+plot(st_geometry(dc_bnd_alb))
+plot(st_geometry(dc_metro), add = TRUE, lwd = 2)
 
+# Install
+# install.packages("leaflet")
+# install.packages("mapview")
+library(leaflet)
+library(mapview)
 
+map <- mapview(dc_bnd_alb)
+map <- map + dc_metro_sttn_alb + dc_metro_alb
+map
